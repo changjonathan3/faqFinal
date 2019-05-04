@@ -86,7 +86,6 @@ class AnswerController extends Controller
             'body.required' => 'Body is required',
             'body.min' => 'Body must be at least 5 characters',
         ]);
-
         $answer = Answer::find($answer);
         $answer->body = $request->body;
         $answer->save();
