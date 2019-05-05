@@ -31,16 +31,15 @@
                                                 href="{{ route('answers.create', ['question_id'=> $question->id])}}">
                             Answer Question
                         </a>
-                        {{ Form::open(['method'  => 'patch', 'route' => ['answers.sorted', $question]])}}
-                        <button class="btn btn-warning float-right" value="submit" type="submit" id="submit">Sort
-                        </button>
-                        {!! Form::close() !!}
+
 
                     </div>
 
                     <div class="card-body">
 
-                        @forelse($question->answers as $answer)
+                        @forelse(App\Answer::where('id', '>=', 301)
+                                ->orderBy('votes', 'desc')
+                                ->get() as $answer)
                             <div class="card">
                                 <div class="card">
                                     Votes: {{$answer->votes}}

@@ -32,8 +32,6 @@ Route::delete('/questions/{question_id}/answer/{answer_id}', 'AnswerController@d
 Route::patch('/questions/{question_id}/answer/{answer_id}/vote_up', 'AnswerController@upvote')->name('answers.upvote');
 Route::patch('/questions/{question_id}/answer/{answer_id}/vote_down', 'AnswerController@downvote')->name('answers.downvote');
 
-Route::patch('/questions/{question_id}', 'AnswerController@sort')->name('answers.sorted');
-
 Route::resources([
     'questions' => 'QuestionController',
 ]);

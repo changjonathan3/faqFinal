@@ -117,12 +117,4 @@ class AnswerController extends Controller
         $answer->save();
         return redirect()->route('answers.show',['question_id' => $question, 'answer_id' => $answer])->with('message', 'Downvoted');
     }
-
-    public function sort(Request $request, $question){
-        $answers = Answer::where('id', '>=', 301)
-            ->orderBy('votes', 'desc')
-            ->get();
-        //dd($answers);
-        return redirect()->route('answers.sorted',['question_id' => $question])->with('message', 'Sorted');
-    }
 }
