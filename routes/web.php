@@ -29,8 +29,12 @@ Route::post('/questions/{question_id}/answers/', 'AnswerController@store')->name
 Route::patch('/questions/{question_id}/answer/{answer_id}', 'AnswerController@update')->name('answers.update');
 Route::delete('/questions/{question_id}/answer/{answer_id}', 'AnswerController@destroy')->name('answers.destroy');
 
-Route::patch('/questions/{question_id}/answer/{answer_id}/vote_up', 'AnswerController@upvote')->name('answers.upvote');
-Route::patch('/questions/{question_id}/answer/{answer_id}/vote_down', 'AnswerController@downvote')->name('answers.downvote');
+Route::patch('/questions/{question_id}/answer/{answer_id}/upvote', 'AnswerController@upvote')->name('answers.upvote');
+Route::patch('/questions/{question_id}/answer/{answer_id}/downvote', 'AnswerController@downvote')->name('answers.downvote');
+
+Route::patch('/questions/{question_id}/upvote', 'QuestionController@upvote')->name('questions.upvote');
+Route::patch('/questions/{question_id}/downvote', 'QuestionController@downvote')->name('questions.downvote');
+
 
 Route::resources([
     'questions' => 'QuestionController',

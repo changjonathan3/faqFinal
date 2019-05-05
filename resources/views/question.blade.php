@@ -19,6 +19,16 @@
                         {{$question->body}}
                     </div>
                     <div class="card-footer">
+                        {{ Form::open(['method'  => 'patch', 'route' => ['questions.downvote', $question->id]])}}
+                        <button class="btn btn-dark float-right" value="submit" type="submit" id="submit">Downvote
+                        </button>
+                        {!! Form::close() !!}
+
+                        {{ Form::open(['method'  => 'patch', 'route' => ['questions.upvote', $question->id]])}}
+                        <button class="btn btn-success float-right" value="submit" type="submit" id="submit">Upvote
+                        </button>
+                        {!! Form::close() !!}
+
                         <a class="btn btn-primary float-right"
                            href="{{ route('questions.edit',['id'=> $question->id])}}">
                             Edit Question

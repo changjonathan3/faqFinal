@@ -13,7 +13,9 @@
                         <div class="card-body">
 
                             <div class="card-deck">
-                                @forelse($questions as $question)
+                                @forelse(App\Question::where('id', '>=', 801)
+                                ->orderBy('votes', 'desc')
+                                ->get() as $question)
                                     <div class="col-sm-4 d-flex align-items-stretch">
                                         <div class="card mb-3 ">
                                             <div class="card-header">
