@@ -10,13 +10,18 @@
                         {{$answer->body}}
                     </div>
                     <div class="card-footer">
-                        {{ Form::open(['method'  => 'DELETE', 'route' => ['answers.destroy', $question, $answer->id]])}}
-                        <button class="btn btn-danger float-right mr-2" value="submit" type="submit" id="submit">Delete
+                        {{ Form::open(['method'  => 'patch', 'route' => ['answers.downvote', $question, $answer->id]])}}
+                        <button class="btn btn-dark float-right" value="submit" type="submit" id="submit">Downvote
                         </button>
                         {!! Form::close() !!}
 
                         {{ Form::open(['method'  => 'patch', 'route' => ['answers.upvote', $question, $answer->id]])}}
-                        <button class="btn btn-warning float-right" value="submit" type="submit" id="submit">Vote Up!
+                        <button class="btn btn-success float-right" value="submit" type="submit" id="submit">Upvote
+                        </button>
+                        {!! Form::close() !!}
+                        
+                        {{ Form::open(['method'  => 'DELETE', 'route' => ['answers.destroy', $question, $answer->id]])}}
+                        <button class="btn btn-danger float-right mr-2" value="submit" type="submit" id="submit">Delete
                         </button>
                         {!! Form::close() !!}
 

@@ -110,4 +110,11 @@ class AnswerController extends Controller
         $answer->save();
         return redirect()->route('answers.show',['question_id' => $question, 'answer_id' => $answer])->with('message', 'Upvoted');
     }
+
+    public function downvote(Request $request, $question, $answer){
+        $answer = Answer::find($answer);
+        $answer->votes = ($answer->votes-1);
+        $answer->save();
+        return redirect()->route('answers.show',['question_id' => $question, 'answer_id' => $answer])->with('message', 'Downvoted');
+    }
 }
