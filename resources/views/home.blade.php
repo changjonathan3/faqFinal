@@ -20,9 +20,10 @@
                                                 <small class="text-muted">
                                                     Updated: {{ $question->created_at->diffForHumans() }}
                                                     Answers: {{ $question->answers()->count() }}
-
+                                                    Votes: {{$question->votes}}
                                                 </small>
                                             </div>
+
                                             <div class="card-body">
                                                 <p class="card-text">{{$question->body}}</p>
                                             </div>

@@ -5,7 +5,14 @@
         <div class="row ">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Question</div>
+                    <div class="card-header">Question
+                        <small class="text-muted">
+                            Votes: {{$question->votes}}
+                        </small>
+                    </div>
+                    <div class="card">
+
+                    </div>
 
                     <div class="card-body">
 
@@ -42,7 +49,9 @@
                                 ->get() as $answer)
                             <div class="card">
                                 <div class="card">
-                                    Votes: {{$answer->votes}}
+                                    <small class="text-muted">
+                                        Votes: {{$answer->votes}}
+                                    </small>
                                 </div>
                                 <div class="card-body">{{$answer->body}}</div>
                                 <div class="card-footer">

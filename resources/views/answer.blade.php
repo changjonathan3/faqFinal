@@ -5,7 +5,10 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Answer</div>
+                    <div class="card-header">Answer
+                        <small class="text-muted">
+                            Votes: {{$answer->votes}}
+                        </small></div>
                     <div class="card-body">
                         {{$answer->body}}
                     </div>
