@@ -14,7 +14,6 @@
 
                             <div class="card-deck">
                                 @forelse($questions as $question)
-
                                     <div class="col-sm-4 d-flex align-items-stretch">
                                         <div class="card mb-3 ">
                                             <div class="card-header">
@@ -48,7 +47,6 @@
                         </div>
                         <div class="card-footer">
                             <div class="float-right">
-                                {{ $questions->links() }}
                             </div>
                         </div>
                     </div>
