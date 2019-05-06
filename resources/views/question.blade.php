@@ -53,10 +53,7 @@
                     </div>
 
                     <div class="card-body">
-
-                        @forelse(App\Answer::where('id', '>=', 301)
-                                ->orderBy('votes', 'desc')
-                                ->get() as $answer)
+                        @forelse($question->answers->sortByDesc('votes') as $answer)
                             <div class="card">
                                 <div class="card">
                                     <small class="text-muted">

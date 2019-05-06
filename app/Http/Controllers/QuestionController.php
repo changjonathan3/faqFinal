@@ -16,7 +16,9 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $answers = $user->answers()->orderBy('votes', 'desc')->get();
+        return view('question')->with('answers', $answers);
     }
     /**
      * Show the form for creating a new resource.
