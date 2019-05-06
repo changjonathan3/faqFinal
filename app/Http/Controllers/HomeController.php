@@ -2,7 +2,6 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Question;
 class HomeController extends Controller
 {
     /**
@@ -22,7 +21,7 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $questions = Question::where('id', '>=', 801)->orderBy('votes', 'desc')->get();
+        $questions = $user->questions()->orderBy('votes', 'desc')->get();
         return view('home')->with('questions', $questions);
     }
 }
